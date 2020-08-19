@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import styled from "styled-components";
 import TrackerPopup from "./TrackerPopup";
 import { motion } from "framer-motion";
@@ -62,22 +61,11 @@ const StyledTrackerPopupContainer = styled(motion.div)`
 
 const TrackerMarker = (props) => {
   const { $hover, active } = props;
-  const [isHover, setIsHover] = useState($hover);
-
-  const handleMouseEnter = (e) => {
-    setIsHover(true);
-  };
-
-  const handleMouseLeave = (e) => {
-    setIsHover(false);
-  };
 
   return (
     <StyledTrackerMarker active={active}>
       {$hover && (
         <StyledTrackerPopupContainer
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           initial={{
             opacity: 0,
             scale: 0.75,

@@ -1,18 +1,6 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import GoogleMapReact from "google-map-react";
 import TrackerMarker from "./TrackerMarker";
-
-import styled from "styled-components";
-import { trackersData } from "../data/trackers";
-
-const StyledMapContainer = styled.section`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
 
 const Map = (props) => {
   const { center, zoom, trackers, activeTracker, setActiveTracker } = props;
