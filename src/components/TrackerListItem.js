@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
 const StyledTrackerListItem = styled.article`
@@ -85,13 +84,6 @@ TrackerListItem.defaultProps = {
     destination: "Portharcourt",
     shipmentID: "MVXT00004",
   },
-};
-
-TrackerListItem.propTypes = {
-  tracker: PropTypes.shape({
-    title: PropTypes.string,
-  }),
-  active: PropTypes.bool,
 };
 
 export default TrackerListItem;

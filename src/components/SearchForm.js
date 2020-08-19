@@ -1,6 +1,5 @@
 // @ts-check
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import SearchIcon from "../assets/icons/search.svg";
@@ -50,11 +49,6 @@ const SearchForm = (props) => {
 
 SearchForm.defaultProps = {
   placeholder: "Enter Tracker or Shipment ID",
-};
-
-SearchForm.propTypes = {
-  placeholder: PropTypes.string,
-  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchForm;
