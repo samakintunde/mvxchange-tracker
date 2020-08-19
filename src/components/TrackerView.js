@@ -17,7 +17,7 @@ const StyledTrackerView = styled.div`
 `;
 
 const StyledTrackerTable = styled.table`
-  margin-top: 3.5rem;
+  margin: 3.5rem auto;
   width: 90%;
 
   tr {
