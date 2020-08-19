@@ -10,6 +10,7 @@ const StyledSearchForm = styled.form`
   display: flex;
   align-items: center;
   border: ${(props) => `1px solid ${props.theme.colors.primaryLight}`};
+  border-radius: 4px;
 `;
 
 const StyledSearchFormIconWrapper = styled.div`
@@ -22,7 +23,7 @@ const StyledSearchFormInput = styled.input`
   border: none;
   border-radius: 4px;
   font-size: 18px;
-  padding: 1rem 1rem 1rem 2.5rem;
+  padding: 1rem 1rem 1rem 2.75rem;
   width: 100%;
 
   &::placeholder {
@@ -38,7 +39,11 @@ const SearchForm = (props) => {
       <StyledSearchFormIconWrapper>
         <img src={SearchIcon} alt="Search Icon" />
       </StyledSearchFormIconWrapper>
-      <StyledSearchFormInput type="text" placeholder={placeholder} />
+      <StyledSearchFormInput
+        name="query"
+        type="text"
+        placeholder={placeholder}
+      />
     </StyledSearchForm>
   );
 };
