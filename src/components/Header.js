@@ -9,7 +9,7 @@ const StyledHeader = styled.header`
   top: 0;
   left: 0;
   width: 100%;
-  padding: 24px;
+  padding: 1.5rem 3rem;
   z-index: 5;
 `;
 

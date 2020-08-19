@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import TrackerListItem from "./TrackerListItem";
+import { trackersData } from "../data/trackers";
+import TrackerView from "./TrackerView";
 
 const StyledTrackerList = styled.section`
-  height: calc(100vh - 15rem);
+  /* height: calc(100vh - 15rem); */
+  height: 100%;
   border-radius: 4px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -28,7 +31,7 @@ const StyledTrackerListBody = styled.ul`
 `;
 
 const TrackerList = (props) => {
-  const { trackers } = props;
+  const { trackers, activeTracker, setActiveTracker } = props;
 
   return (
     <StyledTrackerList>
@@ -36,81 +39,28 @@ const TrackerList = (props) => {
         <h2>Trackers</h2>
       </StyledTrackerListHeading>
       <StyledTrackerListBody>
-        {trackers.map((tracker, index) => (
-          <li key={index}>
-            <TrackerListItem tracker={tracker} />
-          </li>
-        ))}
+        {activeTracker ? (
+          <TrackerView
+            tracker={activeTracker}
+            setActiveTracker={setActiveTracker}
+          />
+        ) : (
+          trackers.map((tracker) => (
+            <li key={tracker.id} onClick={() => setActiveTracker(tracker)}>
+              <TrackerListItem
+                tracker={tracker}
+                active={activeTracker?.id === tracker.id}
+              />
+            </li>
+          ))
+        )}
       </StyledTrackerListBody>
     </StyledTrackerList>
   );
 };
 
-TrackerList.defaultProps = {
-  trackers: [
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-    {
-      title: "4398293",
-      origin: "Lagos",
-      destination: "Portharcourt",
-      shipmentId: "MVXT00004",
-    },
-  ],
+TrackerList.propTypes = {
+  trackers: PropTypes.array.isRequired,
 };
-
-TrackerList.propTypes = {};
 
 export default TrackerList;

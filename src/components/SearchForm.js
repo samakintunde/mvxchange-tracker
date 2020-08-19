@@ -1,5 +1,5 @@
 // @ts-check
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -32,7 +32,13 @@ const StyledSearchFormInput = styled.input`
 `;
 
 const SearchForm = (props) => {
-  const { placeholder, onSubmit } = props;
+  const { placeholder, onSubmit, handleSearchQueryChange } = props;
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleChange = (e) => {
+    setSearchQuery(e.target.value);
+    handleSearchQueryChange(e.target.value);
+  };
 
   return (
     <StyledSearchForm onSubmit={onSubmit}>
@@ -42,6 +48,8 @@ const SearchForm = (props) => {
       <StyledSearchFormInput
         name="query"
         type="text"
+        value={searchQuery}
+        onChange={handleChange}
         placeholder={placeholder}
       />
     </StyledSearchForm>

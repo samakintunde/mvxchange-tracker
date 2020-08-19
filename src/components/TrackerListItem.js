@@ -1,12 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 const StyledTrackerListItem = styled.article`
   padding: 1.5rem;
   display: flex;
   align-items: center;
   transition: background-color 0.3s ease-in-out;
+
+  ${(props) =>
+    props.active &&
+    css`
+      background-color: ${props.theme.colors.primaryLight};
+    `}
 
   &:hover {
     cursor: pointer;
@@ -39,10 +45,10 @@ const StyledTrackerListItemChip = styled.span`
 `;
 
 const TrackerListItem = (props) => {
-  const { tracker } = props;
+  const { tracker, active } = props;
 
   return (
-    <StyledTrackerListItem>
+    <StyledTrackerListItem active={active}>
       <div>
         <StyledTrackerListItemTitle>
           Tracker ID: {tracker.title}
@@ -85,6 +91,7 @@ TrackerListItem.propTypes = {
   tracker: PropTypes.shape({
     title: PropTypes.string,
   }),
+  active: PropTypes.bool,
 };
 
 export default TrackerListItem;
