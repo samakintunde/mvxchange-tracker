@@ -5,17 +5,16 @@ import { SearchForm } from ".";
 import TrackerList from "./TrackerList";
 
 const StyledSidebar = styled.section`
-  display: flex;
-  flex-direction: column;
   background-color: ${(props) => props.theme.colors.offWhite};
   padding: 6rem 3rem 4rem;
   overflow: hidden;
-  height: calc(100vh - 10rem);
+  height: 100vh;
 
   .trackers-section {
+    display: flex;
+    flex-direction: column;
     margin-top: 1.5rem;
-    /* flex: 1 1 auto; */
-    /* height: 100%; */
+    height: 100%;
     /* overflow: hidden; */
   }
 `;

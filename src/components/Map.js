@@ -17,6 +17,16 @@ const StyledMapContainer = styled.section`
 const Map = (props) => {
   const { center, zoom, trackers, activeTracker, setActiveTracker } = props;
 
+  const handleChildMouseEnter = (key, childProps) => {
+    console.log("key", key);
+    console.log("child props", childProps);
+  };
+
+  const handleChildMouseLeave = (key, childProps) => {
+    console.log("key", key);
+    console.log("child props", childProps);
+  };
+
   return (
     <GoogleMapReact
       bootstrapURLKeys={{ key: "AIzaSyABEgmvXDv5ubrnRYuFN7GYkAuwBouwNrY" }}
@@ -24,6 +34,8 @@ const Map = (props) => {
       defaultZoom={zoom}
       yesIWantToUseGoogleMapApiInternals
       onChildClick={(key, childProps) => setActiveTracker(trackers[key - 1])}
+      onChildMouseEnter={handleChildMouseEnter}
+      onChildMouseLeave={handleChildMouseLeave}
 
       // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
     >

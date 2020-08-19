@@ -6,8 +6,9 @@ import { trackersData } from "../data/trackers";
 import TrackerView from "./TrackerView";
 
 const StyledTrackerList = styled.section`
-  /* height: calc(100vh - 15rem); */
   height: 100%;
+
+  flex: 1 1 auto;
   border-radius: 4px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   overflow: hidden;

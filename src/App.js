@@ -16,20 +16,12 @@ function App() {
 
   const handleSearchFormSubmit = (e) => {
     e.preventDefault();
-    setTrackers(trackers.reverse());
-  };
+    const query = e.target.query.value;
 
-  const handleSearchQueryChange = (query) => {
-    console.log(query);
     if (!query) return setTrackers(trackersData);
 
-    const matches = trackersData.every((tracker) => {
-      if (
-        tracker.title.search(query) !== -1 ||
-        tracker.shipmentId.search(query) !== -1
-      ) {
-        return tracker;
-      }
+    const matches = trackersData.filter((tracker) => {
+      return tracker.title.match(query) || tracker.shipmentId.match(query);
     });
 
     setTrackers(matches);
@@ -44,7 +36,6 @@ function App() {
           trackers={trackers}
           activeTracker={activeTracker}
           setActiveTracker={setActiveTracker}
-          handleSearchQueryChange={handleSearchQueryChange}
         />
         <div>
           <Map
