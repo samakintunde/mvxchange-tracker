@@ -1,41 +1,18 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types";
+import React from "react";
 import GoogleMapReact from "google-map-react";
 import TrackerMarker from "./TrackerMarker";
-
-import styled from "styled-components";
-import { trackersData } from "../data/trackers";
-
-const StyledMapContainer = styled.section`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
 
 const Map = (props) => {
   const { center, zoom, trackers, activeTracker, setActiveTracker } = props;
 
-  const handleChildMouseEnter = (key, childProps) => {
-    console.log("key", key);
-    console.log("child props", childProps);
-  };
-
-  const handleChildMouseLeave = (key, childProps) => {
-    console.log("key", key);
-    console.log("child props", childProps);
-  };
-
   return (
     <GoogleMapReact
-      bootstrapURLKeys={{ key: "AIzaSyABEgmvXDv5ubrnRYuFN7GYkAuwBouwNrY" }}
+      bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY }}
       defaultCenter={center}
+      center={activeTracker?.coordinates}
       defaultZoom={zoom}
       yesIWantToUseGoogleMapApiInternals
       onChildClick={(key, childProps) => setActiveTracker(trackers[key - 1])}
-      onChildMouseEnter={handleChildMouseEnter}
-      onChildMouseLeave={handleChildMouseLeave}
 
       // onGoogleApiLoaded={({ map, maps }) => handleApiLoaded(map, maps)}
     >
