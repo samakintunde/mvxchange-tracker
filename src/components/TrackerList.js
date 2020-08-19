@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import TrackerListItem from "./TrackerListItem";
 import TrackerView from "./TrackerView";
+import { motion } from "framer-motion";
 
 const StyledTrackerList = styled.section`
   height: calc(100vh - 14rem);
@@ -27,7 +28,7 @@ const StyledTrackerListHeading = styled.div`
   }
 `;
 
-const StyledTrackerListBody = styled.ul`
+const StyledTrackerListBody = styled(motion.ul)`
   background-color: white;
   padding-right: 1rem;
   height: 100%;
@@ -49,7 +50,7 @@ const TrackerList = (props) => {
             <img
               width="24"
               height="24"
-              src="https://icongr.am/feather/arrow-left.svg?size=24&color=#ffffff"
+              src="https://icongr.am/feather/arrow-left.svg?size=24&color=ffffff"
               alt="Back to results"
             />
           </span>
@@ -58,10 +59,21 @@ const TrackerList = (props) => {
       </StyledTrackerListHeading>
       <StyledTrackerListBody>
         {activeTracker ? (
-          <TrackerView
-            tracker={activeTracker}
-            setActiveTracker={setActiveTracker}
-          />
+          <motion.div
+            initial={{
+              y: 36,
+              opacity: 0.75,
+            }}
+            animate={{
+              y: 0,
+              opacity: 1,
+            }}
+          >
+            <TrackerView
+              tracker={activeTracker}
+              setActiveTracker={setActiveTracker}
+            />
+          </motion.div>
         ) : (
           trackers.map((tracker) => (
             <li key={tracker.id} onClick={() => setActiveTracker(tracker)}>

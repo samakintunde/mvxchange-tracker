@@ -68,11 +68,15 @@ const TrackerPopup = (props) => {
     <StyledTrackerPopup>
       <StyledTrackerPopupBox>
         <h6 className="title">{shipmentId}</h6>
-        <p className="location">Current Location: {address}</p>
-        <p className="time">Last update: {updatedAt}</p>
-        <div className="link">
+        <p className="location">
+          <span>Current Location:</span> {address}
+        </p>
+        <p className="time">
+          <span>Last update:</span> {updatedAt}
+        </p>
+        {/* <div className="link">
           <a href="#">View shipment details</a>
-        </div>
+        </div> */}
       </StyledTrackerPopupBox>
       <StyledTrackerPopupAnchor></StyledTrackerPopupAnchor>
       <StyledTrackerPopupCloseBtn>&times;</StyledTrackerPopupCloseBtn>
