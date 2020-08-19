@@ -14,6 +14,7 @@ const StyledTrackerList = styled.section`
 `;
 
 const StyledTrackerListHeading = styled.div`
+  border-radius: 4px;
   padding: 1.5rem;
   background-color: ${(props) => props.theme.colors.primary};
   color: white;
@@ -26,6 +27,7 @@ const StyledTrackerListHeading = styled.div`
 `;
 
 const StyledTrackerListBody = styled(motion.ul)`
+  border-radius: 4px;
   background-color: white;
   padding-right: 1rem;
   padding-bottom: 4.25rem;
