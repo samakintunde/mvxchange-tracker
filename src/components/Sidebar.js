@@ -9,14 +9,6 @@ const StyledSidebar = styled.section`
   padding: 6rem 3rem 4rem;
   overflow: hidden;
   height: 100vh;
-
-  .trackers-section {
-    display: flex;
-    flex-direction: column;
-    margin-top: 1.5rem;
-    height: 100%;
-    /* overflow: hidden; */
-  }
 `;
 
 const Sidebar = (props) => {
@@ -34,13 +26,11 @@ const Sidebar = (props) => {
         onSubmit={handleSearchFormSubmit}
         handleSearchQueryChange={handleSearchQueryChange}
       />
-      <div className="trackers-section">
-        <TrackerList
-          trackers={trackers}
-          activeTracker={activeTracker}
-          setActiveTracker={setActiveTracker}
-        />
-      </div>
+      <TrackerList
+        trackers={trackers}
+        activeTracker={activeTracker}
+        setActiveTracker={setActiveTracker}
+      />
     </StyledSidebar>
   );
 };
