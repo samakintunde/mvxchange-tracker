@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import { SearchForm } from ".";
 import TrackerList from "./TrackerList";
@@ -33,10 +32,6 @@ const Sidebar = (props) => {
       />
     </StyledSidebar>
   );
-};
-
-Sidebar.propTypes = {
-  handleSearchFormSubmit: PropTypes.func.isRequired,
 };
 
 export default Sidebar;

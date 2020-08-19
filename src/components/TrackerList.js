@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 import styled from "styled-components";
 import TrackerListItem from "./TrackerListItem";
 import TrackerView from "./TrackerView";
@@ -9,8 +8,6 @@ const StyledTrackerList = styled.section`
   height: calc(100vh - 14rem);
   flex-grow: 20;
   margin-top: 1.5rem;
-  /* height: 100%;
-  max-height: 100vh; */
   border-radius: 4px;
   box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -31,6 +28,7 @@ const StyledTrackerListHeading = styled.div`
 const StyledTrackerListBody = styled(motion.ul)`
   background-color: white;
   padding-right: 1rem;
+  padding-bottom: 4.25rem;
   height: 100%;
   overflow-y: scroll;
 
@@ -87,10 +85,6 @@ const TrackerList = (props) => {
       </StyledTrackerListBody>
     </StyledTrackerList>
   );
-};
-
-TrackerList.propTypes = {
-  trackers: PropTypes.array.isRequired,
 };
 
 export default TrackerList;

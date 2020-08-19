@@ -73,9 +73,6 @@ const TrackerPopup = (props) => {
         <p className="time">
           <span>Last update:</span> {updatedAt}
         </p>
-        {/* <div className="link">
-          <a href="#">View shipment details</a>
-        </div> */}
       </StyledTrackerPopupBox>
       <StyledTrackerPopupAnchor></StyledTrackerPopupAnchor>
       <StyledTrackerPopupCloseBtn>&times;</StyledTrackerPopupCloseBtn>
@@ -88,7 +85,5 @@ TrackerPopup.defaultProps = {
   shipmentId: "MVXT0000456",
   updatedAt: "18mins ago",
 };
-
-TrackerPopup.propTypes = {};
 
 export default TrackerPopup;

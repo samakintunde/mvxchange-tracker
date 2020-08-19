@@ -76,6 +76,4 @@ const TrackerView = (props) => {
   );
 };
 
-TrackerView.propTypes = {};
-
 export default TrackerView;

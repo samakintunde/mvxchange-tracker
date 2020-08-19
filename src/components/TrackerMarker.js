@@ -9,7 +9,7 @@ const StyledTrackerMarker = styled.div`
   width: 1.5rem;
   border-radius: 50%;
   background-color: ${(props) =>
-    props.active ? props.theme.colors.primary : props.theme.colors.gray};
+    !props.active ? props.theme.colors.primary : props.theme.colors.gray};
 
   &::before,
   &::after {
@@ -28,14 +28,14 @@ const StyledTrackerMarker = styled.div`
     height: 3rem;
     width: 3rem;
     background-color: ${(props) =>
-      props.active ? "rgba(0, 109, 255, 0.4)" : "rgba(0, 0, 0, 0.15)"};
+      !props.active ? "rgba(0, 109, 255, 0.4)" : "rgba(0, 0, 0, 0.15)"};
   }
 
   &::after {
     height: 5rem;
     width: 5rem;
     background-color: ${(props) =>
-      props.active ? "rgba(0, 109, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"};
+      !props.active ? "rgba(0, 109, 255, 0.1)" : "rgba(0, 0, 0, 0.1)"};
     animation-delay: 1s;
   }
 
@@ -85,7 +85,5 @@ const TrackerMarker = (props) => {
 TrackerMarker.defaultProps = {
   isHover: true,
 };
-
-TrackerMarker.propTypes = {};
 
 export default TrackerMarker;

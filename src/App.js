@@ -14,15 +14,21 @@ function App() {
   const [trackers, setTrackers] = useState(trackersData);
   const [activeTracker, setActiveTracker] = useState(null);
 
+  const filterTrackersByQuery = (query) => {
+    const matches = trackersData.filter((tracker) => {
+      return tracker.title.match(query) || tracker.shipmentId.match(query);
+    });
+
+    return matches;
+  };
+
   const handleSearchFormSubmit = (e) => {
     e.preventDefault();
     const query = e.target.query.value;
 
     if (!query) return setTrackers(trackersData);
 
-    const matches = trackersData.filter((tracker) => {
-      return tracker.title.match(query) || tracker.shipmentId.match(query);
-    });
+    const matches = filterTrackersByQuery(query);
 
     setTrackers(matches);
   };

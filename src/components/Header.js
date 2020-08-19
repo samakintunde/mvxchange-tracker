@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-// import PropTypes from "prop-types";
 
 import MVXchangeLogo from "../assets/images/logo.svg";
 
@@ -20,7 +19,5 @@ const Header = () => {
     </StyledHeader>
   );
 };
-
-Header.propTypes = {};
 
 export default Header;
